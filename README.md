@@ -41,4 +41,3 @@ npm install
 ng serve
 ```
 
-เปิดที่ http://localhost:4200
