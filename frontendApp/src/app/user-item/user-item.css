@@ -1,0 +1,48 @@
+/* src/app/user/user-item/user-item.component.css */
+/* No specific styles needed here if using Bootstrap classes primarily */
+/* You might want to override badge colors or spacing if Bootstrap default isn't exact */
+.badge {
+  padding: 0.4em 0.6em;
+  font-weight: 500;
+  min-width: 80px; /* เพื่อให้ Role มีขนาดใกล้เคียงกัน */
+  text-align: center;
+}
+
+.badge.bg-primary { /* Super Admin */
+  background-color: #007bff !important;
+  color: #fff !important;
+}
+.badge.bg-info { /* Admin */
+  background-color: #17a2b8 !important;
+  color: #fff !important;
+}
+.badge.bg-warning.text-dark { /* HR Admin */
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+.badge.bg-secondary { /* Employee */
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+.badge.bg-light.text-dark { /* Default/Other */
+  background-color: #e9ecef !important;
+  color: #212529 !important;
+}
+
+/* Ensure action buttons are small and without full border */
+td .btn-link {
+  font-size: 0.9em;
+  padding: 0;
+}
+
+/* src/app/user/user-item/user-item.component.css */
+
+/* กำหนดเส้นขอบล่างให้กับ Cell ทั้งหมดใน Component นี้ */
+:host td {
+  border-bottom: 1px solid #e0e0e0; /* สีเทาอ่อน */
+}
+
+/* ลบเส้นขอบด้านบนของ Row ถัดไป (ถ้ามี) */
+:host:last-child td {
+  border-bottom: none; /* อาจลบเส้นขอบของแถวสุดท้ายออก (optional) */
+}

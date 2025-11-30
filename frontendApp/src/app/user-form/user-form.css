@@ -1,0 +1,23 @@
+/* src/app/user/user-form/user-form.component.css */
+
+/* ลบเส้นขอบของตาราง Module Permission */
+.modal-body .table {
+    border: none !important; /* ลบเส้นขอบรอบตารางหลัก */
+}
+
+/* ลบเส้นขอบทั้งหมดของ Cell ในตาราง */
+.modal-body .table th, 
+.modal-body .table td {
+    border: none !important; /* ลบเส้นขอบทั้งหมดของ Header และ Body Cells */
+}
+
+/* เพิ่มเส้นแบ่งบางๆ (ถ้าต้องการ) เพื่อให้อ่านง่ายขึ้น */
+.modal-body .table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid #f1f1f1 !important; 
+}
+
+/* ปรับสีพื้นหลังของ Header ให้เป็นสีฟ้าอ่อนชัดเจน */
+.modal-body .table thead.bg-info-subtle {
+    background-color: #e0f7fa !important; /* สีฟ้าอ่อนที่กำหนดเอง (คล้าย bg-info-subtle) */
+    color: #000;
+}

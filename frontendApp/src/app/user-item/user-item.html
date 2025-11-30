@@ -1,0 +1,25 @@
+<td class="py-2 px-5">
+  <div class="d-flex flex-column align-items-start">
+    <h6 class="mb-0 text-primary">{{ user.fullname }}</h6>
+    <small class="text-muted">{{ user.email }}</small>
+  </div>
+</td>
+
+<td class="py-3 text-center">
+  <div class="d-flex align-items-center justify-content-center">
+    <span [class]="getRoleClass(user.role)" class="w-100 fs-6">{{ user.role }}</span>
+  </div>
+</td>
+
+<td class="py-3 text-muted text-center">{{ formatDate(user.createdDate) }}</td>
+
+<td class="py-3 text-muted text-start">Lorem ipsum</td>
+
+<td class="py-3 text-center">
+  <button class="btn btn-link btn-sm text-muted p-0 me-2" (click)="onEdit()">
+    <i class="fa-regular fa-pen-to-square"></i>
+  </button>
+  <button class="btn btn-link btn-sm text-muted p-0" (click)="onDelete()">
+    <i class="fa-regular fa-trash-can"></i>
+  </button>
+</td>

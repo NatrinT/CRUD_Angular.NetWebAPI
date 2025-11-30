@@ -1,0 +1,177 @@
+<div class="modal d-block" tabindex="-1" role="dialog" style="background: rgba(0, 0, 0, 0.5)">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add User</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCancel()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label required">First Name *</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                class="form-control"
+                placeholder="First Name *"
+                required
+                [(ngModel)]="userModel.firstname"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label required">Last Name *</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                class="form-control"
+                placeholder="Last Name *"
+                required
+                [(ngModel)]="userModel.lastname"
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="emailId" class="form-label required">Email ID *</label>
+              <input
+                type="email"
+                id="emailId"
+                name="emailId"
+                class="form-control"
+                placeholder="Email ID *"
+                required
+                email
+                [(ngModel)]="userModel.email"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="mobileNo" class="form-label">Mobile No</label>
+              <input
+                type="text"
+                id="mobileNo"
+                name="mobileNo"
+                class="form-control"
+                placeholder="Mobile No"
+                [(ngModel)]="userModel.mobileNo"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="roleType" class="form-label required">Select Role Type *</label>
+              <select
+                id="roleType"
+                name="roleType"
+                class="form-select"
+                required
+                [(ngModel)]="userModel.role"
+              >
+                <option value="Super Admin">Super Admin</option>
+                <option value="Admin">Admin</option>
+                <option value="HR Admin">HR Admin</option>
+                <option value="Employee">Employee</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <label for="username" class="form-label required">Username *</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-control"
+                placeholder="Username *"
+                required
+                [(ngModel)]="userModel.username"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="password" class="form-label required">Password *</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                placeholder="Password *"
+                required
+                minlength="6"
+                [(ngModel)]="userModel.password"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="confirmPassword" class="form-label required">Confirm Password *</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="form-control"
+                placeholder="Confirm Password *"
+                required
+                [(ngModel)]="userModel.confirmPassword"
+              />
+            </div>
+          </div>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Module Permission</th>
+                <th class="text-center">Read</th>
+                <th class="text-center">Write</th>
+                <th class="text-center">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (perm of userModel.permissions; track perm.role) {
+              <tr>
+                <td>{{ perm.role }}</td>
+                <td class="text-center">
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="perm.read"
+                    name="{{ perm.role }}-read"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                </td>
+                <td class="text-center">
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="perm.write"
+                    name="{{ perm.role }}-write"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                </td>
+                <td class="text-center">
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="perm.delete"
+                    name="{{ perm.role }}-delete"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+        >
+          Add User
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+/* src/user/user.component.css */
+
+/* 1. ลบเส้นขอบ Card หลัก */
+.card {
+  border: none !important; /* ยืนยันว่าไม่มีขอบ */
+}
+
+/* 2. ลบเส้นขอบของ Header และ Footer ภายใน Card */
+.card-header,
+.card-footer {
+  border: none !important; 
+}
+
+/* 3. ลบเส้นขอบของตารางและเซลล์ */
+.table {
+  /* ลบเส้นขอบรอบตารางหลัก */
+  border: none !important; 
+}
+
+/* ลบเส้นขอบของ Header Cells (<th>) */
+.table th {
+  border: none !important; 
+  background-color: #d5dae4;
+  /* ถ้าต้องการแค่เส้นใต้ th (ตามภาพ) ใช้: border-bottom: 1px solid #dee2e6; */
+}
+
+/* ลบเส้นขอบที่อยู่ระหว่างแถว (<tr>) */
+/* (Bootstrap class 'table-hover' จะให้ effect hover แต่ถ้าไม่ต้องการเส้นแบ่งเลย ให้ใช้โค้ดนี้) */
+.table tr {
+    /* ลบเส้นขอบด้านบนและล่างของ Row */
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* หากต้องการให้มีเส้นแบ่งเบาๆ ระหว่างแถว (ตามภาพ) */
+.table tr td {
+    border-top: 1px solid #f1f1f1; /* เส้นแบ่งบางๆ ระหว่างแถว */
+}
